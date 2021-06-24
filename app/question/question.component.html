@@ -1,0 +1,10 @@
+<div *ngFor="let question of questions; let i = index;">
+    Câu hỏi {{i +1}} : {{question.text}}
+    <div *ngFor="let answer of question.answerList">
+      <input type="checkbox" [checked]="answer.checked"  name = "answer{{i}}"
+             (click)= "checkAnswer(question.id, answer.id,$event)">
+      <label> {{answer.textanwser}}</label>
+    </div>
+  </div>
+  <button class="btn btn-success" (click)="save()" [disabled]="!isCheck">Xem kết quả</button>
+  <h4>Correct: {{totalCorrect ? totalCorrect : 0}}</h4>

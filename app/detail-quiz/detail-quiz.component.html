@@ -1,0 +1,10 @@
+<div *ngFor="let quiz of quizz">
+    Tên bài thi: {{quiz.name}}
+     <div *ngFor="let ques of quiz.questionDTO;let i = index;">
+        Câu hỏi {{i+1}} :{{ques.text}}    
+        <div *ngFor="let answer of ques.answerList;">
+            <input class="form-check-input" type="radio" id="other" name="answer{{i}}" [checked]="answer.checked" (change)="checkAnswer(question.id, answer.id, $event.target.checked)">
+            <label for="other" class="" [ngClass]="{'green': answer.correct}">{{answer.textanwser}}</label>
+        </div>
+    </div>
+ </div>

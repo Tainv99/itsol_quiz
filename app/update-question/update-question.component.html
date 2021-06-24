@@ -1,0 +1,36 @@
+<div class="demuc">
+    <h2
+      style="color:#333333; text-align: left;font-weight: 500; color: black;font-size: 20px; padding: 50px 5px 5px 50px;">
+      Update câu hỏi</h2>
+    <h2
+      style="color:#333333; text-align: left;font-weight: 500; color: black;font-size: 20px; padding: 10px 5px 10px 50px;">
+      Mã đề thi</h2>
+  </div>
+  <form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+      
+    <div class="col-sm-6">
+      <label>Nội dung câu hỏi: </label>
+      <input class="form-control" formControlName="text"/><br>
+    </div>
+    <hr>
+    <div formGroupName="answerList">
+      <div *ngFor="let ans of questionForm.get('answerList')['controls']; let i = index">
+        <div [formGroupName]="i">
+          <div class="col-sm-4">
+            <input formControlName="id" hidden/>
+            <label>Đáp án {{i+1}}: </label>
+            <input class="form-control" formControlName="textanwser"/>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+    <button class="btn btn-success" type="submit" style="margin-right: 10px;">Submit</button>
+    <!-- <button class="btn btn-success" (click)="addAnswer()">Thêm câu trả lời</button> -->
+  </form>
+  <br>
+  <div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>
+  </div>
+  
+  

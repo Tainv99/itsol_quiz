@@ -1,0 +1,7 @@
+<div *ngFor="let o of results">
+              {{o.text}}
+              <div *ngFor="let p of o.anwserDTOList">
+                  <input type="radio" id="other" name="gender">
+                  <label for="other">{{p.textanwser}}</label> 
+              </div>  
+</div>

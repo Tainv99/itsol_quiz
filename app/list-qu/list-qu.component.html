@@ -1,0 +1,10 @@
+<!-- <div *ngFor="let q of qu">
+  <a (click)="getDetails(q.id)"> {{q.id}}</a>
+</div> -->
+<b>Danh sách điểm bài thi:</b>
+<div class="main" style="display: flex;">
+  <div *ngFor="let q of quizs" class="content" style="padding: 10px;">
+    <button type="button" class="btn btn-outline-danger" style="width: 200px;height: 100px;"
+    routerLink="/detail/{{q.id}}">{{q.name}}</button>
+  </div>
+</div>
